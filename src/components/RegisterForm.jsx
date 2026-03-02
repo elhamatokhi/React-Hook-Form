@@ -73,6 +73,60 @@ export default function RegisterForm() {
         />
         {errors.email && <div className="error">{errors.email.message}</div>}
       </div>
+
+      {/* Password field */}
+      <div className="field">
+        <label htmlFor="reg-password">Password</label>
+        <input
+          id="reg-password"
+          name="password"
+          type={showPassword ? "text" : "password"}
+          placeholder="Enter your password...."
+          {...register("password")}
+          autoComplete="new-password"
+        />
+        {/* Show password checkbox */}
+        <div>
+          <label htmlFor="">Show password</label>
+          <input
+            className="checkbox"
+            type="checkbox"
+            checked={showPassword}
+            onChange={(e) => setShowPasswrod(e.target.checked)}
+          />
+          <span>Min 6 characters</span>
+        </div>
+        {errors.password && (
+          <div className="error"> {errors.password.message} </div>
+        )}
+      </div>
+
+      {/* Confirm password */}
+      <div className="field">
+        <label htmlFor="reg-confirm">Confirm Password</label>
+        <input
+          id="reg-confirm"
+          name="confirmPassword"
+          type={showPassword ? "text" : "password"}
+          placeholder="Confirm password..."
+          {...register("confirmPassword")}
+          autoComplete="new-password"
+        />
+        {errors.confirmPassword && (
+          <div className="error">{errors.confirmPassword.message}</div>
+        )}
+      </div>
+
+      {/* Actions to submit form */}
+      <div>
+        <button className="primary">
+            Create account
+        </button>
+
+        <button>Reset</button>
+
+        <p> Already have an account? <button> Login</button></p>
+      </div>
     </form>
   );
 }
