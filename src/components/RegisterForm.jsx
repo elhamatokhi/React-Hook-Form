@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "../validations/registerSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import '../styles/register.css'
-export default function RegisterForm(onSwitchToLogin) {
+
+export default function RegisterForm({onSwitchToLogin}) {
   // Show password checkbox
   const [showPassword, setShowPasswrod] = useState(false);
 
@@ -14,8 +15,8 @@ export default function RegisterForm(onSwitchToLogin) {
   const {
     register,
     handleSubmit,
+    formState: { errors, isValid, isSubmitting },
     reset,
-    formstate: { errors, isValid, isSubmitting },
   } = useForm({
     resolver: yupResolver(registerSchema),
     mode: "onTouched",
@@ -77,7 +78,7 @@ export default function RegisterForm(onSwitchToLogin) {
           {...register("email")}
           autoComplete="email"
         />
-        {errors.email && <div className="error">{errors.email.message}</div>}
+        {errors.email && <div className="register__error">{errors.email.message}</div>}
       </div>
 
       {/* Password */}
@@ -149,7 +150,7 @@ export default function RegisterForm(onSwitchToLogin) {
 
       {/* Actions */}
       <div className="register__actions">
-        <button type="button" className="register__button register__button--primary" disabled={!isValid || isSubmitting}>
+        <button type="submit" className="register__button register__button--primary" disabled={!isValid || isSubmitting}>
           Create account
         </button>
 
