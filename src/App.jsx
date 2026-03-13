@@ -1,19 +1,19 @@
+
 import './App.css'
 import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
-import { useState } from 'react';
+import Dashboard from './pages/Dashboard'
+import { Routes , Route} from 'react-router-dom';
+
 
 function App() {
-  const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div>
-      {
-        showLogin ? (
-          <LoginForm onSwitchToRegister={()=>setShowLogin(false)}/> 
-        ) : (<RegisterForm onSwitchToLogin={() => setShowLogin(true)} />)
-      }
-    </div>
+   <Routes>
+    <Route path='/' element={<LoginForm />}/>
+    <Route path='/register' element={<RegisterForm />} />
+    <Route path='/dashboard' element={<Dashboard />} />
+   </Routes>
   )
 }
 

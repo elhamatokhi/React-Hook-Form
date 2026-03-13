@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { set, useForm } from "react-hook-form";
 import '../styles/login.css'
+import { useNavigate } from "react-router-dom";
+
 export default function LoginForm({ onSwitchToRegister}){
+    const navigate = useNavigate() // To redirect after login
     const [success, setSuccess] = useState("")
 
     const { 
         register,
         handleSubmit,
-        formState: {errors, isValid, isSubmitting},
+        formState: {errors, isSubmitting},
         reset
     } = useForm
     ({
@@ -17,6 +20,7 @@ export default function LoginForm({ onSwitchToRegister}){
     function onSubmit(data){
         console.log("User Logged In: ", data)
         setSuccess("Login successfull!")
+        navigate("/dashboard")
     }
 
     function handleReset(){
@@ -61,13 +65,13 @@ export default function LoginForm({ onSwitchToRegister}){
 
         {/* Actions */}
         <div className="login__actions">
-            <button type="submit" disabled={!isValid || isSubmitting}>Login</button>
+            <button type="submit" disabled={isSubmitting}>Login</button>
             <button type="button" onClick={handleReset}>Reset</button>
         </div>
 
         <p className="login__switch">
             Don't have an account?
-            <button type="button" onClick={onSwitchToRegister}> Register</button>
+            <button type="button" onClick={() => navigate("/register")}> Register</button>
         </p>
 
         </form>

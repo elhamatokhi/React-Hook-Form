@@ -18,7 +18,7 @@ User input is validated and error messages are displayed when fields are invalid
 * Error messages displayed under each field
 * Success message shown after submission
 * Form data logged to the console
-
+ ![RegisterFromScreenShot](src/assets/registerForm.png)
 ### Login Form
 
 * Email required
@@ -27,6 +27,7 @@ User input is validated and error messages are displayed when fields are invalid
 * Form reset functionality
 * Success message shown after login
 
+![LoginFromScreenshot](src/assets/loginForm.png)
 ## Technologies Used
 
 * React

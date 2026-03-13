@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "../validations/registerSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import '../styles/register.css'
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm({onSwitchToLogin}) {
+  const navigate = useNavigate() // To redirect user
+
   // Show password checkbox
   const [showPassword, setShowPasswrod] = useState(false);
 
@@ -33,6 +36,8 @@ export default function RegisterForm({onSwitchToLogin}) {
     setSuccess(
       "✅ Register UI submitted successfully (check console for data).",
     );
+
+    navigate("/")
   }
 
   // Reset the form
@@ -158,7 +163,7 @@ export default function RegisterForm({onSwitchToLogin}) {
 
          <p className="register__switch">
           Already have an account?
-          <button  type="button" className="register__link" onClick={onSwitchToLogin}> Login</button>
+          <button  type="button" className="register__link" onClick={() => navigate('/')}> Login</button>
         </p>
       </div>
     </form>
