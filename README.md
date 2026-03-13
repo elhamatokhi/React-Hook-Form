@@ -76,6 +76,8 @@ src/
  ├── components/
  │    ├── RegisterForm.jsx
  │    └── LoginForm.jsx
+ ├── pages/
+ │    ├── Dashboard.jsx
  │
  ├── validations/
       └── loginSchema.js
