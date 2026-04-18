@@ -15,7 +15,7 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
       <p>Welcome! You are logged in.</p>
 
-      <Link to="/">Logout</Link>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { set, useForm } from "react-hook-form";
+import {useForm } from "react-hook-form";
 import '../styles/login.css'
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +19,7 @@ export default function LoginForm({ onSwitchToRegister}){
 
     function onSubmit(data){
         console.log("User Logged In: ", data)
-        setSuccess("Login successfull!")
+        setSuccess("Login successful!")
         navigate("/dashboard")
     }
 
@@ -51,7 +51,7 @@ export default function LoginForm({ onSwitchToRegister}){
 
 
         {/* Password */}
-        <div className="logi__field">
+        <div className="login__field">
             <label className="login__label">Password</label>
             <input type="password" className="login__input" 
             placeholder="Enter password"
